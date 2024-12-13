@@ -2657,7 +2657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -59.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &368196259 stripped
@@ -4245,6 +4245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2124531744659663380, guid: 179e98a648a3f454abe1e21052b26394, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2629150222993126176, guid: 179e98a648a3f454abe1e21052b26394, type: 3}
       propertyPath: hit_Sound
       value: 
@@ -4265,6 +4269,10 @@ PrefabInstance:
       propertyPath: ground_Hit_Sound
       value: 
       objectReference: {fileID: 8300000, guid: 5c6957988ab0c414cb90a9c6984acae3, type: 3}
+    - target: {fileID: 4670274756316457684, guid: 179e98a648a3f454abe1e21052b26394, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5296715105117880567, guid: 179e98a648a3f454abe1e21052b26394, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.928
