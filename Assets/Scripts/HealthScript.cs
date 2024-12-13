@@ -10,17 +10,20 @@ public class HealthScript : MonoBehaviour
 
     private EnemyMovement enMov;
     public EnemyManager Spawner;
+    private LevelManager lvlMgmt;
     private bool characterDied;
-    public bool isPlayer, isEnemy1, isEnemy2;
+    public bool isPlayer, isEnemy1, isEnemy2, isBoss;
 
     void Awake() 
     {
         characterAnim = GetComponentInChildren<CharacterAnimations>();
         animationDeligate = GetComponentInChildren<AnimationDeligate>();
         enMov = GetComponent<EnemyMovement>();
+        lvlMgmt = GameObject.FindWithTag(Tags.LEVEL_MANAGER_TAG).GetComponent<LevelManager>();
+
         if (isPlayer)
         {
-
+            //blank
         }
         else if (isEnemy1)
         {
@@ -29,6 +32,10 @@ public class HealthScript : MonoBehaviour
         else if (isEnemy2)
         {
             Spawner = GameObject.FindWithTag("EnemySpawner2").GetComponent<EnemyManager>();
+        }
+        else
+        {
+            //blank
         }
     }
    public void ApplyDamage(float damage, bool knockDown)
@@ -48,27 +55,26 @@ public class HealthScript : MonoBehaviour
             if (isPlayer)
             {
                 //Add in Death Screen Trigger Here
+                lvlMgmt.PlayerIsDead();
 
             }
             else
             {
-                //GameObject.FindWithTag(Tags.ENEMY_TAG).GetComponent<DeactivateGameObject>().enabled = true;
                 enMov.enabled = false;
                 CharacterDied();
                 
             }
-            //GameObject.FindWithTag(Tags.ENEMY_TAG).GetComponent<EnemyMovement>().enabled = false;
+
             
             return;
         }
-        if (!isPlayer)
+        if (!isPlayer && !isBoss)
             {
                 if (knockDown)
                 {
                     if (Random.Range(0, 2) > 0)
                     {
                         characterAnim.Knock_Down();
-                        //GameObject.FindWithTag(Tags.ENEMY_TAG).GetComponent<EnemyMovement>().KnockedDown = true;
                         gameObject.GetComponentInParent<EnemyMovement>().KnockedDown = true;
                     }
                     else
@@ -99,6 +105,18 @@ public class HealthScript : MonoBehaviour
                     }
                 }
             }
+            
+            if (isBoss)
+            {
+               
+                    
+                if (Random.Range(0, 3) > 2)
+                {
+                    characterAnim.Hit();
+                }
+                    
+                
+            }
    }
 
    public void CharacterDied()
@@ -107,7 +125,10 @@ public class HealthScript : MonoBehaviour
      }
      void DeactivateGameObject()
      {
-        Spawner.SpawnEnemy();
+        if (isEnemy1 || isEnemy2)
+        {
+            Spawner.SpawnEnemy();
+        }
         //gameObject.SetActive(false);
         Destroy(gameObject);
      }

@@ -7,7 +7,7 @@ public class AttackUniversal : MonoBehaviour
     public LayerMask collisionLayer;
     public float radius = 1f;
     public float damage = 2f;
-    public bool isPlayer, isEnemy;
+    public bool isPlayer, isEnemy, isBoss;
     public GameObject hitFX_Prefab;
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class AttackUniversal : MonoBehaviour
                 }
             }
 
-            if (!isPlayer)
+            if (isEnemy)
             {
                 Vector3 hitfx_Pos = hit[0].transform.position;
                 hitfx_Pos.y += 0f;
@@ -70,6 +70,33 @@ public class AttackUniversal : MonoBehaviour
                 if(gameObject.CompareTag(Tags.RIGHT_LEG_TAG))
                 {
                     hit[0].GetComponent<HealthScript>().ApplyDamage(damage, true);
+                }
+                else 
+                {
+                    hit[0].GetComponent<HealthScript>().ApplyDamage(damage, false);
+                }
+            }
+
+            if (isBoss)
+            {
+                Vector3 hitfx_Pos = hit[0].transform.position;
+                hitfx_Pos.y += 0f;
+
+                if (hit[0].transform.forward.x > 0)
+                {
+                    hitfx_Pos.x -= .2f;
+                }
+
+                else if (hit[0].transform.forward.x < 0)
+                {
+                    hitfx_Pos.x += .2f;
+                }
+
+                Instantiate(hitFX_Prefab, hitfx_Pos, Quaternion.identity);
+
+                if(gameObject.CompareTag(Tags.RIGHT_LEG_TAG))
+                {
+                    hit[0].GetComponent<HealthScript>().ApplyDamage(damage, false);
                 }
                 else 
                 {

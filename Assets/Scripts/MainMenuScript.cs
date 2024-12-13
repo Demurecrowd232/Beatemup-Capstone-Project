@@ -22,7 +22,7 @@ public class MainMenuScript : MonoBehaviour
     public void PlayGame()
     {
         Debug.Log("Play Game");
-        SceneManager.LoadScene("Level-1");
+        SceneManager.LoadScene("SetupScene");
     }
 
     public void Quit()

@@ -7,12 +7,16 @@ public class AnimationDeligate : MonoBehaviour
     public GameObject left_hand_attack_point, right_hand_attack_point, left_foot_attack_point, right_foot_attack_point, right_knee_attack_point;
     public float standUpTimer = 2f;
     private CharacterAnimations charAnim;
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip whoosh_Sound, hit_Sound, pain_sound, dead_Sound, ground_Hit_Sound;
     private EnemyMovement enMov;
 
     void Awake()
     {
      charAnim = GetComponent<CharacterAnimations>();
      enMov = GetComponentInParent<EnemyMovement>();
+     audioSource = GetComponent<AudioSource>();
     }
    void left_hand_attack_on()
    {
@@ -131,4 +135,42 @@ public class AnimationDeligate : MonoBehaviour
           charAnim.Stand_Up();
           enMov.KnockedDown = false;
      }
+     public void Attack_FX_Sound()
+     {
+          audioSource.volume = 0.2f;
+          audioSource.clip = whoosh_Sound;
+          audioSource.Play();
+     }
+     public void Attack_Hit_FX_Sound()
+     {
+          audioSource.volume = 0.2f;
+          audioSource.clip = hit_Sound;
+          audioSource.pitch = (Random.Range(0.7f, 1f));
+          audioSource.Play();
+          audioSource.pitch = 1f;
+          
+     }
+     public void Pain_FX_Sound()
+     {
+          audioSource.volume = 0.2f;
+          audioSource.clip = pain_sound;
+          audioSource.pitch = (Random.Range(0.7f, 1f));
+          audioSource.Play();
+          audioSource.pitch = 1f;
+     }
+     public void Death_FX_Sound()
+     {
+          audioSource.volume = 0.2f;
+          audioSource.clip = dead_Sound;
+          audioSource.pitch = (Random.Range(0.7f, 1f));
+          audioSource.Play();
+          audioSource.pitch = 1f;
+     }
+     public void Fall_FX_Sound()
+     {
+          audioSource.volume = 0.2f;
+          audioSource.clip = ground_Hit_Sound;
+          audioSource.Play();
+     }
+
 }

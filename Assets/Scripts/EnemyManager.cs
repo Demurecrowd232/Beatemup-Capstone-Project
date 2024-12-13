@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -13,18 +14,18 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField]
     public GameObject enemyPrefab;
+    public Animator camAnim;
     private LevelContinueScript continueScript;
     void Awake()
     {
         continueScript = GameObject.FindGameObjectWithTag(Tags.CONTINUE_TRIGGER_TAG).GetComponent<LevelContinueScript>();
+        camAnim = GameObject.FindGameObjectWithTag(Tags.MAIN_CAMERA_TAG).GetComponent<Animator>();
     }
     void Start()
     {
-        //SpawnEnemy();
-        enemiesLeft = true;
-    }
+        enemiesLeft = true;    }
     private void Update() {
-        if (GameObject.FindWithTag(Tags.ENEMY_TAG) == null)
+        if (GameObject.FindWithTag(Tags.ENEMY_TAG) == null && GameObject.FindWithTag(Tags.BOSS_TAG) == null)
         {
             enemiesLeft = false;
             SpawnEnemy();
@@ -41,9 +42,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (enemiesLeft == false)
             {
-                
-                Debug.Log("CONTINUE GAME");
-                //UI GO FORWARD ELEMENT APPEARS
+                camAnim.SetTrigger("signAnimation");
                 continueScript.canContinue = true;
                 enemiesLeft = true;
             }

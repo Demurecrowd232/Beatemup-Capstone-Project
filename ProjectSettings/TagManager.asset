@@ -14,6 +14,11 @@ TagManager:
   - EnemySpawner1
   - EnemySpawner2
   - ContinueWallTrigger
+  - LevelManager
+  - LevelContinueSign
+  - BossEnemy
+  - Canvas
+  - BossHealthBar
   layers:
   - Default
   - TransparentFX
