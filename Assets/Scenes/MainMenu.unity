@@ -1363,6 +1363,31 @@ PrefabInstance:
 
         P - Pause'
       objectReference: {fileID: 0}
+    - target: {fileID: 8538223310241672191, guid: 91b95aab433119541b3d94e0f5a71e02, type: 3}
+      propertyPath: m_text
+      value: 'Punch - J
+
+        Kick - K
+
+        Punch, Kick - J K
+
+        Punch,
+        Punch - J J
+
+        Punch, Punch, Kick - J J K
+
+        Punch, Punch, Kick,
+        Kick - J J K K
+
+        Punch, Punch, Punch - J J J
+
+        Kick, Punch
+        - K J
+
+        Kick, Punch, Punch - K J J
+
+        Kick, Kick - K K'
+      objectReference: {fileID: 0}
     - target: {fileID: 8656288141093504117, guid: 91b95aab433119541b3d94e0f5a71e02, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

@@ -3429,6 +3429,31 @@ PrefabInstance:
 
         P - Pause'
       objectReference: {fileID: 0}
+    - target: {fileID: 8538223310241672191, guid: 91b95aab433119541b3d94e0f5a71e02, type: 3}
+      propertyPath: m_text
+      value: 'Punch - J
+
+        Kick - K
+
+        Punch, Kick - J K
+
+        Punch,
+        Punch - J J
+
+        Punch, Punch, Kick - J J K
+
+        Punch, Punch, Kick,
+        Kick - J J K K
+
+        Punch, Punch, Punch - J J J
+
+        Kick, Punch
+        - K J
+
+        Kick, Punch, Punch - K J J
+
+        Kick, Kick - K K'
+      objectReference: {fileID: 0}
     - target: {fileID: 8656288141093504117, guid: 91b95aab433119541b3d94e0f5a71e02, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -12359,12 +12384,20 @@ PrefabInstance:
       value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 2121260589742309569, guid: 399a3537a2c1a36479bfd25379d5830b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121260589742309569, guid: 399a3537a2c1a36479bfd25379d5830b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2973247881064231973, guid: ebbb871c493d0ad439df6b7d37e11337, type: 3}
+      objectReference: {fileID: 7490345261420120038, guid: ebbb871c493d0ad439df6b7d37e11337, type: 3}
     - target: {fileID: 2121260589742309569, guid: 399a3537a2c1a36479bfd25379d5830b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121260589742309569, guid: 399a3537a2c1a36479bfd25379d5830b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2415741267438818241, guid: 399a3537a2c1a36479bfd25379d5830b, type: 3}
       propertyPath: m_Name
@@ -12372,7 +12405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2415741267438818241, guid: 399a3537a2c1a36479bfd25379d5830b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2790975388483411755, guid: 399a3537a2c1a36479bfd25379d5830b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
